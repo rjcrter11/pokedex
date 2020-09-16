@@ -44,7 +44,7 @@ function Pokemon({ pokemon }) {
         'fairy': pokemon.pokemonTypes[1] === 'Fairy',
 
     })
-    console.log(pokemon.pokemonTypes)
+
 
     return (
         <div className='poke-card' >
@@ -57,6 +57,7 @@ function Pokemon({ pokemon }) {
                 > {pokemon.pokemonTypes[0]} </span>
                 <span className={`${pokemon.pokemonTypes[1] ? pokeType2 : ''}`} > {pokemon.pokemonTypes[1]} </span>
             </div>
+
 
 
         </div>

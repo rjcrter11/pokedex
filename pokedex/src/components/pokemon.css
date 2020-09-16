@@ -111,3 +111,9 @@ img {
 .fairy {
     background-color: pink;
 }
+
+@media (max-width: 800px) {
+    .poke-card {
+        width: 100%; 
+    }
+}
