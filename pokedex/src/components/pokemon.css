@@ -1,7 +1,67 @@
+.types {
+    border: 1px solid black; 
+    border-radius: 5px;
+    color: white; 
+    padding: 3px 8px; 
+  
+}
+
 .grass {
-    color: green; 
+    background-color: green; 
+}
+
+.normal {
+    background-color: gray;
+}
+
+.fire {
+    background-color: red;
+}
+
+.water {
+    background-color: blue;
+}
+
+.electric {
+    background-color: yellow; 
+}
+
+.ice {
+    background-color: lightblue;
+}
+
+.fighting {
+    background-color: brown; 
+}
+
+.ground {
+    background-color: tan;
+}
+
+.flying {
+    background-color: dodgerblue; 
+}
+
+.psychic {
+    background-color: palevioletred;
+}
+
+.bug {
+    background-color: lightgreen; 
+}
+
+.rock {
+    background-color: rgb(196, 164, 124);
+}
+
+.ghost {
+    background-color: rgb(104, 17, 245);
+}
+
+.dragon {
+    background-color: cornflowerblue;
 }
 
 .poison {
-    color: purple; 
+    background-color: purple; 
 }
