@@ -3,13 +3,14 @@ import { useQuery } from '@apollo/client'
 import { POKEMON } from '../graphql/get-pokemon'
 import Pokemon from "../components/Pokemon"
 import Pagination from '../components/Pagination'
+import Spinner from '../components/Spinner'
 import './pokemonContainer.css'
 
 function PokemonContainer() {
     const { loading, error, data: { queryPokemon = [] } = {} } = useQuery(POKEMON)
     const [currentPage, setCurrentPage] = useState(1)
-    const [postsPerPage, setPostsPerPage] = useState(9)
-    if (loading) return <p>Loading...</p>;
+    const [postsPerPage] = useState(9)
+    if (loading) return <Spinner />
     if (error) return <p>Error</p>;
 
     const indexOfLastPokemon = currentPage * postsPerPage;
