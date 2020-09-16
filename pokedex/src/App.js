@@ -9,7 +9,9 @@ function App() {
 
   return (
     <div className="App">
-      <img src={pokemonLogo} alt="logo" />
+      <div className='logo' >
+        <img src={pokemonLogo} alt="logo" />
+      </div>
       <PokemonContainer />
     </div>
   );

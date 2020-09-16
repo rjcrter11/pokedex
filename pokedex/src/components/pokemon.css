@@ -1,8 +1,50 @@
+.poke-card {
+    width: 27%; 
+    border-radius: 0.25rem; 
+    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075);
+    margin-bottom: 4%;
+    display: flex;
+    flex-direction: column;
+   
+}
+
+img {
+    max-height: 250px; 
+    padding: 5px; 
+}
+
+.img-container {
+    padding-top: 6px; 
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+   
+}
+
+.name {
+    text-align: center;
+    padding: 3% 0; 
+    background-color: #ecd018;
+    color: white; 
+    text-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.4);
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.types-container {
+    display: flex;
+    justify-content: center;
+    padding: 3% 0; 
+}
+
 .types {
     border: 1px solid black; 
     border-radius: 5px;
     color: white; 
     padding: 3px 8px; 
+    margin: 0 4px; 
+    font-size: 1.6rem;
   
 }
 
@@ -64,4 +106,8 @@
 
 .poison {
     background-color: purple; 
+}
+
+.fairy {
+    background-color: pink;
 }

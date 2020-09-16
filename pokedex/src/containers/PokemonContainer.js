@@ -2,7 +2,7 @@ import React from 'react'
 import { useQuery } from '@apollo/client'
 import { POKEMON } from '../graphql/get-pokemon'
 import Pokemon from "../components/Pokemon"
-
+import './pokemonContainer.css'
 
 function PokemonContainer() {
     const { loading, error, data: { queryPokemon = [] } = {} } = useQuery(POKEMON)
@@ -12,7 +12,7 @@ function PokemonContainer() {
 
 
     return (
-        <div>
+        <div className='container' >
             {queryPokemon && queryPokemon.map(pokemon => (
                 <Pokemon key={pokemon.id} pokemon={pokemon} />
             ))}
