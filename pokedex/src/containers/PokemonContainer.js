@@ -17,7 +17,8 @@ function PokemonContainer() {
     const indexOfFirstPokemon = indexOfLastPokemon - postsPerPage;
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber)
-
+    const firstPage = () => setCurrentPage(1)
+    const lastPage = () => setCurrentPage(17)
 
     return (
         <>
@@ -27,7 +28,13 @@ function PokemonContainer() {
                 ))}
             </div>
             <div className='pagination' >
-                <Pagination postsPerPage={postsPerPage} totalPosts={queryPokemon.length} paginate={paginate} />
+                <Pagination
+                    postsPerPage={postsPerPage}
+                    totalPosts={queryPokemon.length}
+                    paginate={paginate}
+                    firstPage={firstPage}
+                    lastPage={lastPage}
+                />
             </div>
         </>
     )

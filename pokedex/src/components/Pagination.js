@@ -1,6 +1,8 @@
 import React from 'react'
+import './Pagination.css'
 
-const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
+const Pagination = ({ postsPerPage, totalPosts, paginate, firstPage, lastPage }) => {
+
     const pageNumbers = []
 
     for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
@@ -9,6 +11,7 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
 
     return (
         <nav>
+            <a className='page-number' onClick={() => firstPage()} href="!#" >first page</a>
             <ul className="pagination" >
                 {
                     pageNumbers.map(number => (
@@ -20,6 +23,7 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
                     ))
                 }
             </ul>
+            <a className='page-number' href="!#" onClick={() => lastPage()} >last page</a>
         </nav>
     )
 }

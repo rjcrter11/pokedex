@@ -1,0 +1,24 @@
+
+nav {
+    width: 45%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.page-item {
+    padding: 0 2px; 
+}
+
+.page-link {
+    font-size: 1.2rem;
+}
+
+.page-number {
+    font-size: 1.2rem;
+    margin-bottom: 1%; 
+}
+
+.page-number:hover {
+    text-decoration: none;
+}

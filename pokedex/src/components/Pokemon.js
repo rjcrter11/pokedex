@@ -21,7 +21,4 @@ function Pokemon({ pokemon }) {
 }
 
 
-
-
-
 export default Pokemon
