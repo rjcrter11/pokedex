@@ -1,6 +1,7 @@
 .poke-info-container {
     width: 75%;
-    margin: 0 auto;  
+    margin: 0 auto; 
+    padding: 0 0 3% 0; 
 }
 
 .type-symbol img {
@@ -12,50 +13,92 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2% 0; 
+    padding: 2% 1%; 
+    background-color: #ecd018;
+    color: white; 
+    text-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.4);
+    border-radius: 6px;
 }
 
 .title-bar h2 {
-    font-size: 2.6rem;
+    font-size: 3.6rem;
+    font-weight: bold;
+    text-transform: capitalize;
 }
 
 .poke-name span {
-    font-size: 1.2rem;
+    font-size: 1.6rem;
+    font-weight: 600;
 }
 
 .main-container {
     display: flex;
+    padding: 4% 0 ; 
+    justify-content: space-evenly;
+   
 }
 
 .poke-img {
     display: flex;
     align-items: flex-start;
     width: 42%;
+
+}
+
+.poke-img .shiny {
+    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.085)
+}
+
+.poke-img .shiny-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.poke-img .shiny-container span {
+    padding: 2% 0; 
+    font-size: 1rem;
 }
 
 .stats {
-    width: 51%; 
+    width: 59%; 
     display: flex;
+    background-color: rgb(190, 190, 190);
+    border-radius: 6px;
+    padding: 4% 2%; 
 }
 
 .general-info {
-    width: 25%; 
+    width: 45%; 
+    color: white; 
+}
 
+.general-info h4, .abilities h4 {
+    font-size: 2.2rem;
 }
 
 .general-info p {
     font-size: 1.2rem;
     font-weight: 500;
+    color: black; 
 }
 
 .abilities p {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: 500;
+    color: black; 
+    text-transform: capitalize;
 }
 
 .abilities {
-    width: 33%;
+    width: 45%;
+    text-align: end;
+    color: white; 
 }
 .footer-container {
-    display: flex; 
+    display: flex;
+    justify-content: center;
+    background-color: rgb(116, 138, 240); 
+    border-radius: 6px;
+    padding: 3% 1%; 
+    width: 40%;
 }

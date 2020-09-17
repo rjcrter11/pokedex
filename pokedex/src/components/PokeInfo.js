@@ -8,17 +8,18 @@ import './PokeInfo.css'
 
 const PokeInfo = () => {
     const [pokeInfo, setPokeInfo] = useState([])
+    const [loading, setLoading] = useState(false)
 
     const location = useLocation()
     const pokeImage = `https://pokeres.bastionbot.org/images/pokemon/${location.pathname}.png`
 
     function fetchKantoPokemon() {
+        setLoading(true)
         fetch(`https://pokeapi.co/api/v2/pokemon${location.pathname}`)
             .then(res => res.json())
             .then(pokemon => setPokeInfo(pokemon))
+        setLoading(false)
     }
-
-    console.log(pokeInfo)
 
     const shiny = pokeInfo && pokeInfo.sprites && pokeInfo.sprites.front_shiny
 
@@ -26,9 +27,10 @@ const PokeInfo = () => {
         fetchKantoPokemon()
     }, [])
 
-    if (!pokeInfo) return <Spinner />
+    if (loading) return <Spinner />
 
     return (
+
         <div className='poke-info-container'>
             <div className="title-bar">
                 <div className="poke-name" >
@@ -46,16 +48,15 @@ const PokeInfo = () => {
             <div className="main-container">
                 <div className="poke-img">
                     <img src={pokeImage} alt={pokeInfo.name} />
-
-                    <img className='shiny' src={shiny} alt={`${pokeInfo.name} shiny`} />
+                    <div className="shiny-container">
+                        <img className='shiny' src={shiny} alt={`${pokeInfo.name} shiny`} />
+                        <span>Shiny</span>
+                    </div>
                 </div>
-                {/* <h4>Stats</h4> */}
                 <div className="stats">
-
                     {
                         pokeInfo && pokeInfo.stats && pokeInfo.stats.map(poke => (
                             <StatsBox key={poke.stat.url} baseStat={poke.base_stat} statName={poke.stat.name} />
-                            // <p key={poke.stat.url} > {poke.stat.name} : {poke.base_stat} </p>
                         ))
                     }
                 </div>

@@ -12,7 +12,6 @@ const StatsBox = ({ baseStat, statName }) => {
     const mathed = Math.ceil(baseStat / 10)
     console.log(mathed)
     return (
-
         <div className="stats-column" >
             <span className={statClass(mathed, 10)} ></span>
             <span className={statClass(mathed, 9)}></span>
@@ -24,9 +23,8 @@ const StatsBox = ({ baseStat, statName }) => {
             <span className={statClass(mathed, 3)}></span>
             <span className={statClass(mathed, 2)}></span>
             <span className={statClass(mathed, 1)}></span>
-            <span className="10"> {statName} </span>
+            <p className="10"> {statName} </p>
         </div>
-
     )
 }
 
