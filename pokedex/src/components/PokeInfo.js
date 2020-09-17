@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import Spinner from '../components/Spinner'
 import { typeImg } from '../utils/classUtils'
+import './PokeInfo.css'
 
 const PokeInfo = () => {
     const [pokeInfo, setPokeInfo] = useState([])
@@ -16,14 +17,11 @@ const PokeInfo = () => {
             .then(pokemon => setPokeInfo(pokemon))
     }
 
-
-    console.log(pokeInfo)
-
     const shiny = pokeInfo && pokeInfo.sprites && pokeInfo.sprites.front_shiny
 
+    const stat = pokeInfo && pokeInfo.stats && pokeInfo.stats.map(poke => (Math.ceil(poke.base_stat / 10)))
 
-
-
+    console.log(stat)
 
     useEffect(() => {
         fetchKantoPokemon()
@@ -32,37 +30,53 @@ const PokeInfo = () => {
     if (!pokeInfo) return <Spinner />
 
     return (
-        <div>
-            <div>
-                <h2> {pokeInfo.name} </h2>
-                <span>Kanto Index: {pokeInfo.id} </span>
-                {
-                    pokeInfo && pokeInfo.types && pokeInfo.types.map(poke => (
-                        <img key={poke.type.url} src={typeImg(poke.type.name)} alt={pokeInfo.name} />
-                    ))
-                }
+        <div className='poke-info-container'>
+            <div className="title-bar">
+                <div className="poke-name" >
+                    <h2> {pokeInfo.name} </h2>
+                    <span>Kanto Index: {pokeInfo.id} </span>
+                </div>
+                <div className="type-symbol">
+                    {
+                        pokeInfo && pokeInfo.types && pokeInfo.types.map(poke => (
+                            <img key={poke.type.url} src={typeImg(poke.type.name)} alt={pokeInfo.name} />
+                        ))
+                    }
+                </div>
             </div>
-            <img src={pokeImage} alt={pokeInfo.name} />
+            <div className="main-container">
+                <div className="poke-img">
+                    <img src={pokeImage} alt={pokeInfo.name} />
 
-            <img className='shiny' src={shiny} alt={`${pokeInfo.name} shiny`} />
+                    <img className='shiny' src={shiny} alt={`${pokeInfo.name} shiny`} />
+                </div>
+                <div className="stats">
+                    <h4>Stats</h4>
+                    {
+                        pokeInfo && pokeInfo.stats && pokeInfo.stats.map(poke => (
+                            <p key={poke.stat.url} > {poke.stat.name} : {poke.base_stat} </p>
+                        ))
+                    }
+                </div>
 
-            <div>
-                <p>Weight: {pokeInfo.weight} </p>
-                <p>Height: {pokeInfo.height} </p>
-                <p>Base Experience: {pokeInfo.base_experience} </p>
             </div>
-            <h4>Abilities</h4>
-            {
-                pokeInfo && pokeInfo.abilities && pokeInfo.abilities.map(poke => (
-                    <p key={poke.ability.url} > {poke.ability.name} </p>
-                ))
-            }
-            <h4>Stats</h4>
-            {
-                pokeInfo && pokeInfo.stats && pokeInfo.stats.map(poke => (
-                    <p key={poke.stat.url} > {poke.stat.name} : {poke.base_stat} </p>
-                ))
-            }
+            <div className="footer-container">
+                <div className="general-info" >
+                    <h4>Info</h4>
+                    <p>Weight: {pokeInfo.weight} </p>
+                    <p>Height: {pokeInfo.height} </p>
+                    <p>Base Experience: {pokeInfo.base_experience} </p>
+                </div>
+                <div className="abilities">
+                    <h4>Abilities</h4>
+                    {
+                        pokeInfo && pokeInfo.abilities && pokeInfo.abilities.map(poke => (
+                            <p key={poke.ability.url} > {poke.ability.name} </p>
+                        ))
+                    }
+                </div>
+            </div>
+
 
         </div>
     )
