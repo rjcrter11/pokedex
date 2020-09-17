@@ -30,7 +30,6 @@ const PokeInfo = () => {
     if (loading) return <Spinner />
 
     return (
-
         <div className='poke-info-container'>
             <div className="title-bar">
                 <div className="poke-name" >
@@ -47,7 +46,7 @@ const PokeInfo = () => {
             </div>
             <div className="main-container">
                 <div className="poke-img">
-                    <img src={pokeImage} alt={pokeInfo.name} />
+                    <img className="default" src={pokeImage} alt={pokeInfo.name} />
                     <div className="shiny-container">
                         <img className='shiny' src={shiny} alt={`${pokeInfo.name} shiny`} />
                         <span>Shiny</span>
@@ -60,7 +59,6 @@ const PokeInfo = () => {
                         ))
                     }
                 </div>
-
             </div>
             <div className="footer-container">
                 <div className="general-info" >
@@ -78,8 +76,6 @@ const PokeInfo = () => {
                     }
                 </div>
             </div>
-
-
         </div>
     )
 }

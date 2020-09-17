@@ -5,12 +5,7 @@ import { statClass } from '../utils/classUtils'
 import './StatsBox.css'
 
 const StatsBox = ({ baseStat, statName }) => {
-
-    // console.log('StatBoxes: ', statBoxes)
-    // console.log('BaseStat: ', baseStat)
-    // console.log("Stat: ", stat)
     const mathed = Math.ceil(baseStat / 10)
-    console.log(mathed)
     return (
         <div className="stats-column" >
             <span className={statClass(mathed, 10)} ></span>
