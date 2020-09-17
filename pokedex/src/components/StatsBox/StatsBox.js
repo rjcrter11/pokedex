@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { statClass } from '../utils/classUtils'
+import { statClass } from '../../utils/classUtils'
 
 import './StatsBox.css'
 
@@ -22,5 +22,4 @@ const StatsBox = ({ baseStat, statName }) => {
         </div>
     )
 }
-
 export default StatsBox; 

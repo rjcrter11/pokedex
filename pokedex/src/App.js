@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, useHistory } from 'react-router-dom'
 import pokemonLogo from './assets/pokemon-logo.png'
 import PokemonContainer from './containers/PokemonContainer'
-import PokeInfo from './components/PokeInfo'
+import PokeInfo from './components/PokeInfo/PokeInfo'
 import './App.css';
 
 function App() {

@@ -1,24 +1,22 @@
 import React, { useState } from 'react'
 import { useQuery } from '@apollo/client'
 import { POKEMON } from '../graphql/get-pokemon'
-import Pokemon from "../components/Pokemon"
-import Pagination from '../components/Pagination'
-import Spinner from '../components/Spinner'
-import Search from '../components/Search'
+import Pokemon from "../components/Pokemon/Pokemon"
+import Pagination from '../components/Pagination/Pagination'
+import Spinner from '../components/Spinner/Spinner'
+import Search from '../components/Search/Search'
 import './pokemonContainer.css'
 
 function PokemonContainer() {
     const { loading, error, data: { queryPokemon = [] } = {} } = useQuery(POKEMON)
     const [inputValue, setInputValue] = useState('')
     const [currentPage, setCurrentPage] = useState(1)
-    const [postsPerPage] = useState(9)
+    const [postsPerPage] = useState(21)
     if (loading) return <Spinner />
     if (error) return <p>Error</p>;
 
-
     const indexOfLastPokemon = currentPage * postsPerPage;
     const indexOfFirstPokemon = indexOfLastPokemon - postsPerPage;
-
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
@@ -36,9 +34,12 @@ function PokemonContainer() {
             <Search pokemon={filteredPokemon} petFilterOnChange={petFilterOnChange} inputValue={inputValue} />
             <div className='container' >
 
-                {filteredPokemon && filteredPokemon.slice(indexOfFirstPokemon, indexOfLastPokemon).map(pokemon => (
+                {inputValue ? (filteredPokemon && filteredPokemon.slice(indexOfFirstPokemon, indexOfLastPokemon).map(pokemon => (
                     <Pokemon key={pokemon.id} pokemon={pokemon} />
-                ))}
+                ))) : (
+                        queryPokemon && queryPokemon.slice(indexOfFirstPokemon, indexOfLastPokemon).map(pokemon => (
+                            <Pokemon key={pokemon.id} pokemon={pokemon} />
+                        )))}
             </div>
             <div className='pagination' >
                 <Pagination

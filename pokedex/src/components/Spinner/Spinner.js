@@ -1,6 +1,6 @@
 import React from 'react'
 
-import pokeballSpinner from '../assets/pokeballSpinner.png'
+import pokeballSpinner from '../../assets/pokeballSpinner.png'
 import './Spinner.css'
 
 const Spinner = () => {
@@ -12,5 +12,4 @@ const Spinner = () => {
         </div>
     )
 }
-
 export default Spinner 
