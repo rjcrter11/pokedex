@@ -16,9 +16,12 @@ function PokemonContainer() {
     const indexOfLastPokemon = currentPage * postsPerPage;
     const indexOfFirstPokemon = indexOfLastPokemon - postsPerPage;
 
+
     const paginate = (pageNumber) => setCurrentPage(pageNumber)
     const firstPage = () => setCurrentPage(1)
     const lastPage = () => setCurrentPage(17)
+
+
 
     return (
         <>

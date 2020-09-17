@@ -16,14 +16,14 @@ const Pagination = ({ postsPerPage, totalPosts, paginate, firstPage, lastPage })
                 {
                     pageNumbers.map(number => (
                         <li key={number} className='page-item' >
-                            <a onClick={() => paginate(number)} href="!#" className="page-link" >
+                            <a onClick={() => paginate(number)} href="/" className="page-link" >
                                 {number}
                             </a>
                         </li>
                     ))
                 }
             </ul>
-            <a className='page-number' href="!#" onClick={() => lastPage()} >last page</a>
+            <a className='page-number' href="/" onClick={() => lastPage()} >last page</a>
         </nav>
     )
 }

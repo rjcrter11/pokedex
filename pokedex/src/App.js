@@ -1,6 +1,8 @@
 import React from 'react';
+import { Route } from 'react-router-dom'
 import pokemonLogo from './assets/pokemon-logo.png'
 import PokemonContainer from './containers/PokemonContainer'
+import PokeInfo from './components/PokeInfo'
 import './App.css';
 
 function App() {
@@ -10,7 +12,12 @@ function App() {
       <div className='logo' >
         <img src={pokemonLogo} alt="logo" />
       </div>
-      <PokemonContainer />
+      <Route exact path='/'>
+        <PokemonContainer />
+      </Route>
+      <Route path='/:pokeID' >
+        <PokeInfo />
+      </Route>
 
     </div>
   );
