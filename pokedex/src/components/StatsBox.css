@@ -1,0 +1,30 @@
+
+
+.stats-column {
+    display: flex; 
+    flex-direction: column;
+    width: 18%;
+    justify-content: center;
+    margin: 0 1%; 
+}
+
+.stats-column span {
+    width: 100%;
+    padding: 8% 0;
+    margin: 4% 0; 
+    border: 1px solid white; 
+    background-color: white;
+   
+}
+
+.stats-column p {
+    border: none;
+    text-align: center;
+    color: black; 
+    font-weight: bolder; 
+}
+
+.stats-column .teal   {
+    background-color: rgb(116, 138, 240);
+    border: none; 
+}

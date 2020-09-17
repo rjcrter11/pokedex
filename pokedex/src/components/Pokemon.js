@@ -1,11 +1,19 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import { classTypes } from '../utils/classUtils'
 import './pokemon.css'
 
+
 function Pokemon({ pokemon }) {
 
+    const history = useHistory()
+
+    const handleClick = () => {
+        history.push(`/${pokemon.id}`)
+    }
+
     return (
-        <div className='poke-card' >
+        <div className='poke-card' onClick={handleClick} >
             <p className='name' >{pokemon.name}</p>
             <div className='img-container' >
                 <img src={pokemon.imgUrl} alt={pokemon.name} />
