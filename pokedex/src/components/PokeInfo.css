@@ -1,5 +1,5 @@
 .poke-info-container {
-    width: 60%;
+    width: 75%;
     margin: 0 auto;  
 }
 
@@ -30,11 +30,12 @@
 .poke-img {
     display: flex;
     align-items: flex-start;
-    width: 49%;
+    width: 42%;
 }
 
 .stats {
-    width: 49%; 
+    width: 51%; 
+    display: flex;
 }
 
 .general-info {

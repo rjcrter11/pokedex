@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 import { useLocation } from 'react-router-dom'
 import Spinner from '../components/Spinner'
+import StatsBox from '../components/StatsBox'
 import { typeImg } from '../utils/classUtils'
 import './PokeInfo.css'
 
@@ -17,11 +18,9 @@ const PokeInfo = () => {
             .then(pokemon => setPokeInfo(pokemon))
     }
 
+    console.log(pokeInfo)
+
     const shiny = pokeInfo && pokeInfo.sprites && pokeInfo.sprites.front_shiny
-
-    const stat = pokeInfo && pokeInfo.stats && pokeInfo.stats.map(poke => (Math.ceil(poke.base_stat / 10)))
-
-    console.log(stat)
 
     useEffect(() => {
         fetchKantoPokemon()
@@ -50,11 +49,13 @@ const PokeInfo = () => {
 
                     <img className='shiny' src={shiny} alt={`${pokeInfo.name} shiny`} />
                 </div>
+                {/* <h4>Stats</h4> */}
                 <div className="stats">
-                    <h4>Stats</h4>
+
                     {
                         pokeInfo && pokeInfo.stats && pokeInfo.stats.map(poke => (
-                            <p key={poke.stat.url} > {poke.stat.name} : {poke.base_stat} </p>
+                            <StatsBox key={poke.stat.url} baseStat={poke.base_stat} statName={poke.stat.name} />
+                            // <p key={poke.stat.url} > {poke.stat.name} : {poke.base_stat} </p>
                         ))
                     }
                 </div>

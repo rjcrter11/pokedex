@@ -83,3 +83,12 @@ export const typeImg = (pokemon) => {
 
     }
 }
+
+
+export const statClass = (stat, num) => {
+
+    var statNum = classNames({
+        'teal': stat >= num
+    })
+    return statNum
+}

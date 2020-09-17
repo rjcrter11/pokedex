@@ -1,0 +1,26 @@
+
+
+.stats-column {
+    display: flex; 
+    flex-direction: column;
+    width: 16%;
+    justify-content: center;
+    margin: 0 1%; 
+}
+
+.stats-column span {
+    width: 100%;
+    padding: 8% 0;
+    margin: 5% 0; 
+    border: 1px solid teal; 
+    border-radius: 5px; 
+}
+
+.stats-column span:last-child {
+    border: none;
+    text-align: center;
+}
+
+.teal {
+    background-color: teal;
+}
