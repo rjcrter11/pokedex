@@ -158,3 +158,21 @@
         padding: 8% 0; 
     }
 }
+
+@media (max-width: 380px) {
+    .title-bar {
+        flex-direction: column-reverse;
+    }
+    .poke-name {
+        width: 100%;
+        display: flex; 
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 0 2%; 
+    }
+    .type-symbol {
+        width: 100%;
+        display: flex; 
+        justify-content: flex-end;
+    }
+}
