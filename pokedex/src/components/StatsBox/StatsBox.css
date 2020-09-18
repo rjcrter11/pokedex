@@ -24,7 +24,22 @@
     font-weight: bolder; 
 }
 
+
+
 .stats-column .teal   {
     background-color: rgb(116, 138, 240);
     border: none; 
+}
+
+@media (max-width: 550px) {
+    .stats-column {
+        margin: 0 0.5%; 
+    }
+    .stats-column p {
+        font-size: 1.1rem;
+    }
+    .stats-column p {
+        margin: 0; 
+    }
+
 }

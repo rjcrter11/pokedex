@@ -10,3 +10,12 @@
     border: 1px solid lightgray; 
     width: 20%; 
 }
+
+@media (max-width: 800px) {
+    .form-group {
+        justify-content: center;
+    }
+    .form-group input {
+        width: 50%;
+    }
+}

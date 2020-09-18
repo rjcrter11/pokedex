@@ -11,7 +11,7 @@ function PokemonContainer() {
     const { loading, error, data: { queryPokemon = [] } = {} } = useQuery(POKEMON)
     const [inputValue, setInputValue] = useState('')
     const [currentPage, setCurrentPage] = useState(1)
-    const [postsPerPage] = useState(21)
+    const [postsPerPage] = useState(151)
     if (loading) return <Spinner />
     if (error) return <p>Error</p>;
 
@@ -21,11 +21,14 @@ function PokemonContainer() {
     const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
     const petFilterOnChange = e => {
+        console.log("fire")
         setInputValue(e.target.value)
     }
 
+    const pokesToFilter = [...queryPokemon]
+
     const filteredPokemon =
-        queryPokemon && queryPokemon.filter(pokemon => {
+        pokesToFilter && pokesToFilter.filter(pokemon => {
             return pokemon.name.toLowerCase().includes(inputValue.toLowerCase())
         })
 
@@ -33,13 +36,10 @@ function PokemonContainer() {
         <>
             <Search pokemon={filteredPokemon} petFilterOnChange={petFilterOnChange} inputValue={inputValue} />
             <div className='container' >
-
-                {inputValue ? (filteredPokemon && filteredPokemon.slice(indexOfFirstPokemon, indexOfLastPokemon).map(pokemon => (
-                    <Pokemon key={pokemon.id} pokemon={pokemon} />
-                ))) : (
-                        queryPokemon && queryPokemon.slice(indexOfFirstPokemon, indexOfLastPokemon).map(pokemon => (
-                            <Pokemon key={pokemon.id} pokemon={pokemon} />
-                        )))}
+                {
+                    filteredPokemon && filteredPokemon.slice(indexOfFirstPokemon, indexOfLastPokemon).map(pokemon => (
+                        <Pokemon key={pokemon.id} pokemon={pokemon} />
+                    ))}
             </div>
             <div className='pagination' >
                 <Pagination
