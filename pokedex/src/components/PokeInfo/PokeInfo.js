@@ -8,19 +8,24 @@ import './PokeInfo.css'
 
 const PokeInfo = () => {
     const [pokeInfo, setPokeInfo] = useState([])
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
 
     const location = useLocation()
     const pokeImage = `https://pokeres.bastionbot.org/images/pokemon/${location.pathname}.png`
 
+
+
     function fetchKantoPokemon() {
-        setLoading(true)
+
         fetch(`https://pokeapi.co/api/v2/pokemon${location.pathname}`)
             .then(res => res.json())
-            .then(pokemon => setPokeInfo(pokemon))
-        setLoading(false)
-    }
+            .then(pokemon => {
+                setPokeInfo(pokemon)
+                setLoading(false)
+            })
 
+    }
+    console.log(loading)
     const shiny = pokeInfo && pokeInfo.sprites && pokeInfo.sprites.front_shiny
 
     useEffect(() => {
