@@ -4,6 +4,11 @@
     padding: 0 0 3% 0; 
 }
 
+.card-container {
+    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075);
+    border-radius: 6px;
+}
+
 .type-symbol img {
     max-height: 100px;
     max-width: 100px;
@@ -13,11 +18,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2% 1%; 
+    padding: 3% 1%; 
     background-color: #ecd018;
     color: white; 
     text-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.4);
-    border-radius: 6px;
+  
 }
 
 .title-bar h2 {
@@ -33,16 +38,16 @@
 
 .main-container {
     display: flex;
-    padding: 4% 0 ; 
     justify-content: space-evenly;
-   
+    
 }
 
 .poke-img {
     display: flex;
+    justify-content: space-between;
     align-items: flex-start;
     width: 42%;
-
+    
 }
 
 .poke-img .shiny {
@@ -61,14 +66,17 @@
 
 .poke-img .default {
     align-self: flex-end; 
+    margin-left: 10%; 
+    width: 300px;
+   
 }
+
 
 .stats {
     width: 59%; 
     display: flex;
     background-color: rgb(190, 190, 190);
-    border-radius: 6px;
-    padding: 4% 2%; 
+    padding: 6% 2%; 
 }
 
 .general-info {
@@ -102,7 +110,51 @@
     display: flex;
     justify-content: center;
     background-color: rgb(116, 138, 240); 
-    border-radius: 6px;
     padding: 3% 1%; 
-    width: 40%;
+    width: 41.5%;
+}
+
+
+@media (max-width: 1250px) {
+    .poke-info-container {
+        width: 75%; 
+    }
+}
+@media (max-width: 900px) {
+    .poke-info-container {
+        width: 85%; 
+    }
+}
+
+@media (max-width: 800px) {
+    .poke-info-container {
+        width: 100%;
+        
+    }
+    .card-container {
+        padding: 0 9%; 
+    }
+    .main-container {
+        flex-direction: column;
+    }
+    .poke-img, .stats {
+        width: 100%
+    }
+    .footer-container {
+        width: 100%; 
+        padding: 7% 1%; 
+    }
+    .abilities p, .general-info p {
+        padding: 2% 0; 
+    }
+}
+
+@media (max-width: 550px) {
+  
+    .card-container {
+        padding: 0; 
+    }
+    .stats {
+        padding: 8% 0; 
+    }
 }

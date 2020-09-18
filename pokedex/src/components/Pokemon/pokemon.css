@@ -1,5 +1,5 @@
 .poke-card {
-    width: 27%; 
+    width: 30%; 
     border-radius: 0.25rem; 
     box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075);
     margin-bottom: 4%;
@@ -7,10 +7,21 @@
     flex-direction: column;
    
 }
+.poke-card:hover {
+    cursor: pointer;
+
+}
+
+.img-container img:hover {
+    transform: scale(1.2);
+    transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95)
+}
 
 img {
     max-height: 250px; 
     padding: 5px; 
+    overflow: hidden;
+    
 }
 
 .img-container {
@@ -21,6 +32,14 @@ img {
     width: 100%;
    
 }
+
+.poke-id {
+    padding: 2% 5%; 
+    font-size: 1.2rem;
+    color: rgb(78, 78, 78);
+    font-weight: 500;
+}
+
 
 .name {
     text-align: center;
@@ -42,7 +61,7 @@ img {
     border: 1px solid black; 
     border-radius: 5px;
     color: white; 
-    padding: 3px 8px; 
+    padding: 1% 8%; 
     margin: 0 4px; 
     font-size: 1.6rem;
   
