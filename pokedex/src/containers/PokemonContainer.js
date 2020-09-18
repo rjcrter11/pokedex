@@ -20,8 +20,7 @@ function PokemonContainer() {
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
-    const petFilterOnChange = e => {
-        console.log("fire")
+    const pokemonFilterOnChange = e => {
         setInputValue(e.target.value)
     }
 
@@ -34,8 +33,8 @@ function PokemonContainer() {
 
     return (
         <>
-            <Search pokemon={filteredPokemon} petFilterOnChange={petFilterOnChange} inputValue={inputValue} />
             <div className='container' >
+                <Search pokemon={filteredPokemon} pokemonFilterOnChange={pokemonFilterOnChange} inputValue={inputValue} />
                 {
                     filteredPokemon && filteredPokemon.slice(indexOfFirstPokemon, indexOfLastPokemon).map(pokemon => (
                         <Pokemon key={pokemon.id} pokemon={pokemon} />
