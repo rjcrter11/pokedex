@@ -13,8 +13,6 @@ const PokeInfo = () => {
     const location = useLocation()
     const pokeImage = `https://pokeres.bastionbot.org/images/pokemon/${location.pathname}.png`
 
-
-
     function fetchKantoPokemon() {
 
         fetch(`https://pokeapi.co/api/v2/pokemon${location.pathname}`)
@@ -25,7 +23,7 @@ const PokeInfo = () => {
             })
 
     }
-    console.log(loading)
+
     const shiny = pokeInfo && pokeInfo.sprites && pokeInfo.sprites.front_shiny
 
     useEffect(() => {
