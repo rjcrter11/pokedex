@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import Spinner from '../Spinner/Spinner'
 import StatsBox from '../StatsBox/StatsBox'
-import { typeImg } from '../../utils/classUtils'
+import { typeImg, idGen } from '../../utils/classUtils'
 import './PokeInfo.css'
 
 const PokeInfo = () => {
@@ -37,7 +37,7 @@ const PokeInfo = () => {
                             <div className="title-bar">
                                 <div className="poke-name" >
                                     <h2> {pokeInfo.name} </h2>
-                                    <span>Kanto Index: {pokeInfo.id} </span>
+                                    <span> {idGen(pokeInfo.id)} </span>
                                 </div>
                                 <div className="type-symbol">
                                     {

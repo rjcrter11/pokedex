@@ -1,6 +1,6 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
-import { classTypes } from '../../utils/classUtils'
+import { classTypes, idGen } from '../../utils/classUtils'
 import './pokemon.css'
 
 
@@ -9,16 +9,6 @@ function Pokemon({ pokemon }) {
 
     const handleClick = () => {
         history.push(`/${pokemon.id}`)
-    }
-
-    const idGen = (id) => {
-        if (id < 10) {
-            return `#00${id}`
-        } else if (id < 99) {
-            return `#0${id}`
-        } else {
-            return `#${id}`
-        }
     }
 
     return (
@@ -37,6 +27,5 @@ function Pokemon({ pokemon }) {
         </div>
     )
 }
-
 
 export default Pokemon
