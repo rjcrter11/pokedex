@@ -29,7 +29,6 @@ const PokeInfo = () => {
         return fetch(evoChain)
             .then(res => res.json())
             .then(evos => {
-                console.log(evos.chain)
                 setEvolutionChain(evos.chain.evolves_to[0].evolves_to[0].species.name)
                 setLoading(false)
             })
@@ -37,7 +36,6 @@ const PokeInfo = () => {
 
 
     const shiny = pokeInfo && pokeInfo.sprites && pokeInfo.sprites.front_shiny
-    console.log(evolutionChain)
 
     useEffect(() => {
 
