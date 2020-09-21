@@ -3,31 +3,44 @@ import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import Spinner from '../Spinner/Spinner'
 import StatsBox from '../StatsBox/StatsBox'
+import PokeInfoTitle from '../PokeInfoTitle/PokeInfoTitle'
 import { typeImg, idGen } from '../../utils/classUtils'
 import './PokeInfo.css'
 
 const PokeInfo = () => {
     const [pokeInfo, setPokeInfo] = useState([])
+    const [evolutionChain, setEvolutionChain] = useState('')
     const [loading, setLoading] = useState(true)
 
     const location = useLocation()
     const pokeImage = `https://pokeres.bastionbot.org/images/pokemon/${location.pathname}.png`
 
-    function fetchKantoPokemon() {
+    const fetchKantoPokemon = async () => {
+        const request = await fetch(`https://pokeapi.co/api/v2/pokemon${location.pathname}`)
+        const data = await request.json()
+        setPokeInfo(data)
+    }
 
-        fetch(`https://pokeapi.co/api/v2/pokemon${location.pathname}`)
+    const fetchSpecies = async () => {
+        const request = await fetch(`https://pokeapi.co/api/v2/pokemon-species${location.pathname}/`)
+        const data = await request.json()
+        const evoChain = data.evolution_chain.url
+
+        return fetch(evoChain)
             .then(res => res.json())
-            .then(pokemon => {
-                setPokeInfo(pokemon)
+            .then(evos => {
+                setEvolutionChain(evos.chain.evolves_to[0].evolves_to[0].species.name)
                 setLoading(false)
             })
-
     }
+
 
     const shiny = pokeInfo && pokeInfo.sprites && pokeInfo.sprites.front_shiny
 
     useEffect(() => {
+
         fetchKantoPokemon()
+        fetchSpecies()
     }, [])
 
     return (
@@ -38,10 +51,7 @@ const PokeInfo = () => {
                 ) : (
                         <div className="card-container" >
                             <div className="title-bar">
-                                <div className="poke-name" >
-                                    <h2> {pokeInfo.name} </h2>
-                                    <span> {idGen(pokeInfo.id)} </span>
-                                </div>
+                                <PokeInfoTitle name={pokeInfo.name} id={pokeInfo.id} />
                                 <div className="type-symbol">
                                     {
                                         pokeInfo && pokeInfo.types && pokeInfo.types.map(poke => (
@@ -67,19 +77,25 @@ const PokeInfo = () => {
                                 </div>
                             </div>
                             <div className="footer-container">
-                                <div className="general-info" >
-                                    <h4>Info</h4>
-                                    <p>Weight: {pokeInfo.weight} </p>
-                                    <p>Height: {pokeInfo.height} </p>
-                                    <p>Base Experience: {pokeInfo.base_experience} </p>
+                                <div className='left-footer-box' >
+                                    <div className="general-info" >
+                                        <h4>Info</h4>
+                                        <p>Weight: {pokeInfo.weight} </p>
+                                        <p>Height: {pokeInfo.height} </p>
+                                        <p>Base Experience: {pokeInfo.base_experience} </p>
+                                    </div>
+                                    <div className="abilities">
+                                        <h4>Abilities</h4>
+                                        {
+                                            pokeInfo && pokeInfo.abilities && pokeInfo.abilities.map(poke => (
+                                                <p key={poke.ability.url} > {poke.ability.name} </p>
+                                            ))
+                                        }
+                                    </div>
                                 </div>
-                                <div className="abilities">
-                                    <h4>Abilities</h4>
-                                    {
-                                        pokeInfo && pokeInfo.abilities && pokeInfo.abilities.map(poke => (
-                                            <p key={poke.ability.url} > {poke.ability.name} </p>
-                                        ))
-                                    }
+                                <div className="right-footer-box">
+                                    <h4>Final Evolution  </h4>
+                                    <p>{evolutionChain}</p>
                                 </div>
                             </div>
                         </div>
