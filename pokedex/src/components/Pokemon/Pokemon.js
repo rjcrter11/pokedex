@@ -1,14 +1,14 @@
-import React from 'react'
-import { useHistory } from 'react-router-dom'
-import { classTypes, idGen } from '../../utils/classUtils'
-import './pokemon.css'
+import React from 'react';
+import { useHistory } from 'react-router-dom';
+import { classTypes, idGen } from '../../utils/classUtils';
+import './pokemon.css';
 
 
 function Pokemon({ pokemon }) {
-    const history = useHistory()
+    const history = useHistory();
 
     const handleClick = () => {
-        history.push(`/${pokemon.id}`)
+        history.push(`/${pokemon.id}`);
     }
 
     return (
@@ -19,7 +19,6 @@ function Pokemon({ pokemon }) {
             </div>
             <span className="poke-id"> {idGen(pokemon.id)}   </span>
             <div className='types-container' >
-
                 <span className={`${pokemon.pokemonTypes[0] ? classTypes(pokemon.pokemonTypes[0]) : ''}`}
                 > {pokemon.pokemonTypes[0]} </span>
                 <span className={`${pokemon.pokemonTypes[1] ? classTypes(pokemon.pokemonTypes[1]) : ''}`} > {pokemon.pokemonTypes[1]} </span>
@@ -28,4 +27,4 @@ function Pokemon({ pokemon }) {
     )
 }
 
-export default Pokemon
+export default Pokemon;
