@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-import pokeballSpinner from '../../assets/pokeballSpinner.png'
-import './Spinner.css'
+import pokeballSpinner from '../../assets/pokeballSpinner.png';
+import './Spinner.css';
 
 const Spinner = () => {
     return (
@@ -12,4 +12,4 @@ const Spinner = () => {
         </div>
     )
 }
-export default Spinner 
+export default Spinner;
