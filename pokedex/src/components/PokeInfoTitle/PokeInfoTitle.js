@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-import { idGen } from '../../utils/classUtils'
+import { idGen } from '../../utils/classUtils';
 
 
 const PokeInfoTitle = ({ name, id }) => (
@@ -10,4 +10,4 @@ const PokeInfoTitle = ({ name, id }) => (
     </div>
 )
 
-export default PokeInfoTitle
+export default PokeInfoTitle;

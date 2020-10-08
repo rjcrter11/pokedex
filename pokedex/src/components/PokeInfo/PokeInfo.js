@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 
-import { useLocation } from 'react-router-dom'
-import Spinner from '../Spinner/Spinner'
-import StatsBox from '../StatsBox/StatsBox'
-import PokeInfoTitle from '../PokeInfoTitle/PokeInfoTitle'
-import { typeImg, idGen } from '../../utils/classUtils'
-import './PokeInfo.css'
+import { useLocation } from 'react-router-dom';
+import Spinner from '../Spinner/Spinner';
+import StatsBox from '../StatsBox/StatsBox';
+import PokeInfoTitle from '../PokeInfoTitle/PokeInfoTitle';
+import { typeImg } from '../../utils/classUtils';
+import './PokeInfo.css';
 
 const PokeInfo = () => {
     const [pokeInfo, setPokeInfo] = useState([])
@@ -16,15 +16,15 @@ const PokeInfo = () => {
     const pokeImage = `https://pokeres.bastionbot.org/images/pokemon/${location.pathname}.png`
 
     const fetchKantoPokemon = async () => {
-        const request = await fetch(`https://pokeapi.co/api/v2/pokemon${location.pathname}`)
-        const data = await request.json()
-        setPokeInfo(data)
+        const request = await fetch(`https://pokeapi.co/api/v2/pokemon${location.pathname}`);
+        const data = await request.json();
+        setPokeInfo(data);
     }
 
     const fetchSpecies = async () => {
-        const request = await fetch(`https://pokeapi.co/api/v2/pokemon-species${location.pathname}/`)
-        const data = await request.json()
-        const evoChain = data.evolution_chain.url
+        const request = await fetch(`https://pokeapi.co/api/v2/pokemon-species${location.pathname}/`);
+        const data = await request.json();
+        const evoChain = data.evolution_chain.url;
 
         return fetch(evoChain)
             .then(res => res.json())
@@ -35,10 +35,9 @@ const PokeInfo = () => {
     }
 
 
-    const shiny = pokeInfo && pokeInfo.sprites && pokeInfo.sprites.front_shiny
+    const shiny = pokeInfo && pokeInfo.sprites && pokeInfo.sprites.front_shiny;
 
     useEffect(() => {
-
         fetchKantoPokemon()
         fetchSpecies()
     }, [])
@@ -104,4 +103,4 @@ const PokeInfo = () => {
         </div>
     )
 }
-export default PokeInfo
+export default PokeInfo;
