@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-import './Search.css'
+import './Search.css';
 
 const Search = ({ inputValue, pokemonFilterOnChange }) => (
     <div className="form-group">
@@ -12,4 +12,4 @@ const Search = ({ inputValue, pokemonFilterOnChange }) => (
         />
     </div>
 )
-export default Search
+export default Search;
