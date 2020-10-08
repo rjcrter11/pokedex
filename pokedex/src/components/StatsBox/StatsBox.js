@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-import { statClass } from '../../utils/classUtils'
+import { statClass } from '../../utils/classUtils';
 
-import './StatsBox.css'
+import './StatsBox.css';
 
 const StatsBox = ({ baseStat, statName }) => {
-    const mathed = Math.ceil(baseStat / 10)
+    const mathed = Math.ceil(baseStat / 10);
     return (
         <div className="stats-column" >
             <span className={statClass(mathed, 10)} ></span>
